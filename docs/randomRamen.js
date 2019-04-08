@@ -20,8 +20,8 @@ function convertCSVtoData(str){
         dataset[i] = row[i].split(',');
     }
 
-    return Array(dataset);
     alert(dataset[1][1]);
+    return dataset;
 }
 
 csvFile = "restaurants.csv";
