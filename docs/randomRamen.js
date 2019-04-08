@@ -2,12 +2,12 @@
 function readCSV(str){
     var req = new XMLHttpRequest();
 
-    req.open("GET", str, true);
+    req.open("GET", "restaurants.csv", true);
     req.send(null);
 
     req.onload = function(){
         csvData = convertCSVtoData(req.responseText);
-        return csvData;
+        return Array(csvData);
     }
 }
 function convertCSVtoData(str){
@@ -18,7 +18,7 @@ function convertCSVtoData(str){
         dataset[i] = row[i].split(',');
     }
 
-    return dataset;
+    return Array(dataset);
     //alert(dataset[1][1]);
 }
 
