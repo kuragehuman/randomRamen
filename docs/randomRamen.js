@@ -7,8 +7,8 @@ function readCSV(str){
 
     req.onload = function(){
         csvData = convertCSVtoData(req.responseText);
+        return csvData;
     }
-    return csvData;
 }
 function convertCSVtoData(str){
     var dataset = [];
