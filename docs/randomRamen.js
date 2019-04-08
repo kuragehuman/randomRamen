@@ -1,13 +1,14 @@
 
-function readCSV(){
+function readCSV(str){
     var req = new XMLHttpRequest();
 
-    req.open("GET", "restaurants.csv", true);
+    req.open("GET", str, true);
     req.send(null);
 
     req.onload = function(){
-        convertCSVtoData(req.responseText);
+        csvData = convertCSVtoData(req.responseText);
     }
+    return csvData
 }
 function convertCSVtoData(str){
     var dataset = [];
@@ -17,8 +18,11 @@ function convertCSVtoData(str){
         dataset[i] = row[i].split(',');
     }
 
-    alert(dataset[1][1]);
+    return dataset
+    //alert(dataset[1][1]);
 }
 
-readCSV();
+csvFile = "restaurants.csv"
+restaurantData = readCSV(str);
+alert(restaurantData[0][1])
 
