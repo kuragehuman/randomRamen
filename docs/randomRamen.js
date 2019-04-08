@@ -24,5 +24,5 @@ function convertCSVtoData(str){
 
 csvFile = "restaurants.csv";
 restaurantData = readCSV(csvFile);
-alert(restaurantData[0][1]);
+alert(restaurantData[1][1]);
 
