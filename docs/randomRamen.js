@@ -8,7 +8,7 @@ function readCSV(str){
     req.onload = function(){
         csvData = convertCSVtoData(req.responseText);
     }
-    return csvData
+    return csvData;
 }
 function convertCSVtoData(str){
     var dataset = [];
@@ -18,11 +18,11 @@ function convertCSVtoData(str){
         dataset[i] = row[i].split(',');
     }
 
-    return dataset
+    return dataset;
     //alert(dataset[1][1]);
 }
 
-csvFile = "restaurants.csv"
+csvFile = "restaurants.csv";
 restaurantData = readCSV(csvFile);
-alert(restaurantData[0][1])
+alert(restaurantData[0][1]);
 
