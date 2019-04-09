@@ -1,4 +1,4 @@
-var csvData = new Array(new Object());
+var csvData = [{name:"name", days:"days", dist:"dist", money:"money", genre:"genre", favorite:"fav"}];
 
 function readCSV(str){
     var req = new XMLHttpRequest();
