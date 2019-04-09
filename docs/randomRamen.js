@@ -8,7 +8,7 @@ function readCSV(str){
 
     req.onload = function(){
         csvData = convertCSVtoData(req.responseText);
-        alert(csvData[0][0]);
+        alert(csvData[0].name);
         //return csvData;
         
     }
@@ -18,10 +18,16 @@ function convertCSVtoData(str){
     var row = str.split("\n");
 
     for(var i=0; i<row.length; i++){
-        dataset[i] = row[i].split(',');
+        var tmp = row[i].split(',');
+        dataset[i].name = tmp[0];
+        dataset[i].days = tmp[1];
+        dataset[i].dist = tmp[2];
+        dataset[i].money = tmp[3];
+        dataset[i].genre = tmp[4];
+        dataset[i].favorite = tmp[5];
     }
 
-    alert(dataset[1][1]);
+    alert(dataset[1].name);
     return dataset;
 }
 
@@ -29,15 +35,12 @@ csvFile = "restaurants.csv";
 readCSV(csvFile);
 
 function randomSelect(){
-    var openRestaurant;
     //日時検索
     var today = new Date();
     var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
-    for(var i = 0; i < csvData.length; i++){
-        if(oneweek[today.getDay()] == csvData[i][1]){
-            openRestaurant.push(csvData[i]);
-        }
-    }
+    
+    var openRestaurant = csvData[1].filter(value => value.days == oneweek[today.getDay()]);
+    
     alert(openRestaurant[0]);
 }
 
