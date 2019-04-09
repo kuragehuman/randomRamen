@@ -1,3 +1,4 @@
+var csvData;
 
 function readCSV(str){
     var req = new XMLHttpRequest();
@@ -8,7 +9,7 @@ function readCSV(str){
     req.onload = function(){
         csvData = convertCSVtoData(req.responseText);
         alert(csvData[0][0]);
-        return csvData;
+        //return csvData;
         
     }
 }
@@ -25,6 +26,6 @@ function convertCSVtoData(str){
 }
 
 csvFile = "restaurants.csv";
-restaurantData = readCSV(csvFile);
-alert(restaurantData[1][1]);
+readCSV(csvFile);
+alert(csvData[1][1]);
 
