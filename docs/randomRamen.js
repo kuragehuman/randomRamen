@@ -1,4 +1,4 @@
-var csvData = [{}];
+var csvData = [];
 
 function readCSV(str){
     var req = new XMLHttpRequest();
@@ -17,15 +17,16 @@ function convertCSVtoData(str){
     var dataset = [];
     var row = str.split("\n");
 
-    for(var i=0; i<row.length; i++){
+    for(var i=1; i<row.length; i++){
         var tmp = row[i].split(',');
-        dataset.push(new Array());
-        dataset[i].name = tmp[0];
-        dataset[i].days = tmp[1];
-        dataset[i].dist = tmp[2];
-        dataset[i].money = tmp[3];
-        dataset[i].genre = tmp[4];
-        dataset[i].favorite = tmp[5];
+        num = fataset.length;
+        dataset.push(new Object());
+        dataset[num].name = tmp[0];
+        dataset[num].days = tmp[1];
+        dataset[num].dist = tmp[2];
+        dataset[num].money = tmp[3];
+        dataset[num].genre = tmp[4];
+        dataset[num].favorite = tmp[5];
     }
 
     alert(dataset[1].name);
