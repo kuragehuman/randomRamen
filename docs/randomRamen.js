@@ -41,7 +41,7 @@ function randomSelect(){
     var today = new Date();
     var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     
-    var openRestaurant = csvData[1].filter(value => value.days == oneweek[today.getDay()]);
+    var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
     
     alert(openRestaurant[0]);
 }
