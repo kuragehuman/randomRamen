@@ -1,4 +1,4 @@
-var csvData = [{name:"name", days:"days", dist:"dist", money:"money", genre:"genre", favorite:"fav"}];
+var csvData = [{}];
 
 function readCSV(str){
     var req = new XMLHttpRequest();
@@ -19,6 +19,7 @@ function convertCSVtoData(str){
 
     for(var i=0; i<row.length; i++){
         var tmp = row[i].split(',');
+        dataset.push(new Array());
         dataset[i].name = tmp[0];
         dataset[i].days = tmp[1];
         dataset[i].dist = tmp[2];
