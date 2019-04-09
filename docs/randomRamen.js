@@ -19,7 +19,7 @@ function convertCSVtoData(str){
 
     for(var i=1; i<row.length; i++){
         var tmp = row[i].split(',');
-        num = fataset.length;
+        num = dataset.length;
         dataset.push(new Object());
         dataset[num].name = tmp[0];
         dataset[num].days = tmp[1];
