@@ -9,10 +9,7 @@ function readCSV(str){
     req.send(null);
 
     req.onload = function(){
-        csvData = convertCSVtoData(req.responseText);
-        //alert(csvData[0].name);
-        //return csvData;
-        
+        csvData = convertCSVtoData(req.responseText);        
     }
 }
 function convertCSVtoData(str){
@@ -25,13 +22,13 @@ function convertCSVtoData(str){
         dataset.push(new Object());
         dataset[num].name   = tmp[0];
         dataset[num].days   = tmp[1];
-        dataset[num].dist   = tmp[2];
-        dataset[num].money  = tmp[3];
-        dataset[num].genre  = tmp[4];
-        dataset[num].fav    = tmp[5];
+        dataset[num].time   = tmp[2];
+        dataset[num].dist   = tmp[3];
+        dataset[num].money  = tmp[4];
+        dataset[num].genre  = tmp[5];
+        dataset[num].fav    = tmp[6];
     }
 
-    //alert(dataset[1].name);
     return dataset;
 }
 
@@ -42,7 +39,7 @@ function randomSelect(){
     
     var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
     
-    alert(openRestaurant[0].name);
-    alert(openRestaurant[1].name);
-    alert(openRestaurant[2].name);
+    alert(openRestaurant[0].name + " 営業時間:" + openRestaurant[0].time);
+    //alert(openRestaurant[1].name);
+    //alert(openRestaurant[2].name);
 }
