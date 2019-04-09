@@ -28,7 +28,16 @@ function convertCSVtoData(str){
 csvFile = "restaurants.csv";
 readCSV(csvFile);
 
-function buttonClick(){
-    alert(csvData[1][1]);
+function randomSelect(){
+    var openRestaurant;
+    //日時検索
+    var today = new Date();
+    var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+    for(var i = 0; i < csvData.length; i++){
+        if(oneweek[today.getDay()] == csvData[i][1]){
+            openRestaurant.pushcsvData[i];
+        }
+    }
+    alert(openRestaurant[0]);
 }
 
