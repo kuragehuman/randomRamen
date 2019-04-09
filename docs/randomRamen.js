@@ -1,4 +1,4 @@
-var csvData = [];
+var csvData = [{}];
 
 function readCSV(str){
     var req = new XMLHttpRequest();
@@ -14,7 +14,7 @@ function readCSV(str){
     }
 }
 function convertCSVtoData(str){
-    var dataset = [];
+    var dataset = [{}];
     var row = str.split("\n");
 
     for(var i=1; i<row.length; i++){
