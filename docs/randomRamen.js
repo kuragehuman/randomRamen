@@ -27,5 +27,8 @@ function convertCSVtoData(str){
 
 csvFile = "restaurants.csv";
 readCSV(csvFile);
-alert(csvData[1][1]);
+
+function buttonClick(){
+    alert(csvData[1][1]);
+}
 
