@@ -32,6 +32,29 @@ function convertCSVtoData(str){
     return dataset;
 }
 
+function openCheck(restaurants){
+    var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
+    for(var i=0; i<restaurants.length; i++){
+        var openTime = restaurants[i].time.split(' ');
+        if(openTime.length%2==0){
+            var today = new Date();
+            var count=0;
+            for(var j=0; j<openTime.length/2; j++){
+                if(openTime[j] < today.getHours() < openTime[j+1]){
+                    break;
+                }
+                else{
+                    count++;
+                }
+            }
+            if(count==openTime.length){
+                openTime.splice(i, 1);
+            }
+        }
+    }
+    return openTime;
+}
+
 function randomSelect(){
     //日時検索
     var today = new Date();
