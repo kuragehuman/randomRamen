@@ -39,7 +39,9 @@ function randomSelect(){
     
     var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
     
-    alert(openRestaurant[0].name + " 営業時間:" + openRestaurant[0].time);
+    var id = Math.floor(Math.random() * Math.floor(openRestaurant.length));
+
+    alert(openRestaurant[id].name + " 営業時間:" + openRestaurant[id].time);
     //alert(openRestaurant[1].name);
     //alert(openRestaurant[2].name);
 }
