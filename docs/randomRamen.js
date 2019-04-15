@@ -56,7 +56,7 @@ function openCheck(restaurants){
     for(var i=0; i<tmp.length; i++){
         var openTime = tmp[i].time.split(' ');
         if(openTime.length < 2){
-            openTime.splice(i, 1);
+            tmp.splice(i, 1);
         }
         else if(openTime.length%2==0){
             var count=0;
