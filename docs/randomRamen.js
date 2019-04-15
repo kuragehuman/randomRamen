@@ -32,15 +32,31 @@ function convertCSVtoData(str){
     return dataset;
 }
 
+function timeCheck(openTime, closeTime){
+    var openTimeSplit = openTime.split(':');
+    var closeTimeSplit = closeTime.split(':');
+    var today = new Date();
+    if(openTimeSplit[0] < today.getHours() < closeTimeSplit[0]){
+        return 1;
+    }
+    else if((openTimeSplit[0] == today.getHours()) && (openTimeSplit[1] <= today.getMinutes()) && (today.getMinutes() <= closeTimeSplit[1])){
+        return 1;
+    }
+    else if((closeTimeSplit[0] == today.getHours()) && (openTimeSplit[1] <= today.getMinutes()) && (today.getMinutes() <= closeTimeSplit[1])){
+        return 1;
+    }
+    return 0;
+
+}
+
 function openCheck(restaurants){
     var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
     for(var i=0; i<restaurants.length; i++){
         var openTime = restaurants[i].time.split(' ');
         if(openTime.length%2==0){
-            var today = new Date();
             var count=0;
             for(var j=0; j<openTime.length/2; j++){
-                if(openTime[j] < today.getHours() < openTime[j+1]){
+                if(timeCheck(openTime[j], openTime[j+1])){
                     break;
                 }
                 else{
