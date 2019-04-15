@@ -53,7 +53,10 @@ function openCheck(restaurants){
     var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
     for(var i=0; i<restaurants.length; i++){
         var openTime = restaurants[i].time.split(' ');
-        if(openTime.length%2==0){
+        if(openTime.length < 2){
+            openTime.splice(i, 1);
+        }
+        else if(openTime.length%2==0){
             var count=0;
             for(var j=0; j<openTime.length/2; j++){
                 if(timeCheck(openTime[j], openTime[j+1])){
