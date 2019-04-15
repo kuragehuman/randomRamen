@@ -51,9 +51,10 @@ function timeCheck(openTime, closeTime){
 
 function openCheck(restaurants){
     var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
-    var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
-    for(var i=0; i<restaurants.length; i++){
-        var openTime = restaurants[i].time.split(' ');
+    var today = new Date();
+    var tmp = restaurants.filter(value => value.days == oneweek[today.getDay()]);
+    for(var i=0; i<tmp.length; i++){
+        var openTime = tmp[i].time.split(' ');
         if(openTime.length < 2){
             openTime.splice(i, 1);
         }
@@ -68,11 +69,11 @@ function openCheck(restaurants){
                 }
             }
             if(count==openTime.length){
-                openTime.splice(i, 1);
+                tmp.splice(i, 1);
             }
         }
     }
-    return openTime;
+    return tmp;
 }
 
 function randomSelect(){
