@@ -50,26 +50,25 @@ function timeCheck(openTime, closeTime){
 }
 
 function openCheck(restaurants){
+    var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
     for(var i=0; i<restaurants.length; i++){
-        if(openTime == ""){
+        var openTime = restaurants[i].time.split(' ');
+        if(openTime.length < 2){
             openTime.splice(i, 1);
         }
-        else{
-            var openTime = restaurants[i].time.split(' ');
-            if(openTime.length%2==0){
-                var count=0;
-                for(var j=0; j<openTime.length/2; j++){
-                    if(timeCheck(openTime[j], openTime[j+1])){
-                        break;
-                    }
-                    else{
-                        count++;
-                    }
+        else if(openTime.length%2==0){
+            var count=0;
+            for(var j=0; j<openTime.length/2; j++){
+                if(timeCheck(openTime[j], openTime[j+1])){
+                    break;
                 }
-                if(count==openTime.length){
-                    openTime.splice(i, 1);
+                else{
+                    count++;
                 }
+            }
+            if(count==openTime.length){
+                openTime.splice(i, 1);
             }
         }
     }
@@ -78,12 +77,16 @@ function openCheck(restaurants){
 
 function randomSelect(){
     //日時検索
-    var today = new Date();
-    var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+    //var today = new Date();
     
-    var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
+    var openRestaurant = openCheck(csvData);
+    //var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
     
     var id = Math.floor(Math.random() * Math.floor(openRestaurant.length));
+
+    for (var i = 0; i < openRestaurant.length; i++){
+        alert(openRestaurant[i].name + " 営業時間:" + openRestaurant[i].time);
+    }
 
     alert(openRestaurant[id].name + " 営業時間:" + openRestaurant[id].time);
     //alert(openRestaurant[1].name);
