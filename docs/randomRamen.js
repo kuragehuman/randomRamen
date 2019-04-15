@@ -52,22 +52,24 @@ function timeCheck(openTime, closeTime){
 function openCheck(restaurants){
     var tmp = restaurant.filter(value => value.days == oneweek[today.getDay()]);
     for(var i=0; i<restaurants.length; i++){
-        var openTime = restaurants[i].time.split(' ');
-        if(openTime.length < 2){
+        if(openTime == ""){
             openTime.splice(i, 1);
         }
-        else if(openTime.length%2==0){
-            var count=0;
-            for(var j=0; j<openTime.length/2; j++){
-                if(timeCheck(openTime[j], openTime[j+1])){
-                    break;
+        else{
+            var openTime = restaurants[i].time.split(' ');
+            if(openTime.length%2==0){
+                var count=0;
+                for(var j=0; j<openTime.length/2; j++){
+                    if(timeCheck(openTime[j], openTime[j+1])){
+                        break;
+                    }
+                    else{
+                        count++;
+                    }
                 }
-                else{
-                    count++;
+                if(count==openTime.length){
+                    openTime.splice(i, 1);
                 }
-            }
-            if(count==openTime.length){
-                openTime.splice(i, 1);
             }
         }
     }
