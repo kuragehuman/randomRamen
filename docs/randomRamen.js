@@ -78,18 +78,16 @@ function openCheck(restaurants){
 
 function randomSelect(){
     //日時検索
-    //var today = new Date();
     
     var openRestaurant = openCheck(csvData);
-    //var openRestaurant = csvData.filter(value => value.days == oneweek[today.getDay()]);
     
     var id = Math.floor(Math.random() * Math.floor(openRestaurant.length));
 
+    // リストチェック用
+    /*
     for (var i = 0; i < openRestaurant.length; i++){
         alert(openRestaurant[i].name + " 営業時間:" + openRestaurant[i].time);
     }
-
+    */
     alert(openRestaurant[id].name + " 営業時間:" + openRestaurant[id].time);
-    //alert(openRestaurant[1].name);
-    //alert(openRestaurant[2].name);
 }

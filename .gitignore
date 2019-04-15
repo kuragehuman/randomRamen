@@ -1,0 +1,4 @@
+*.out
+*.xml
+*.xlsx
+.DS_Store
