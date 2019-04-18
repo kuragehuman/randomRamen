@@ -65,6 +65,7 @@ function openCheck(restaurants){
             openDT.splice(i, 1);
         }
         else if(open.length%2==0){
+            alert(open[0] + ", " + open[1]);
             for(var j=0; j<open.length/2; j++){
                 if(timeCheck(open[2*j], open[2*j+1]) == 0){
                     var spliced = openDT.splice(i, 1);
