@@ -42,7 +42,7 @@ function timeCheck(openTime, closeTime){
 
     alert(openTimeDate.getTime() + "\n" + today.getTime() + "\n" + closeTimeDate.getTime());
 
-    if(openTimeDate.getTime() < today.getTime() < closeTimeDate.getTime()){
+    if(openTimeDate.getTime() < today.getTime() && today.getTime() < closeTimeDate.getTime()){
         return 1;
     }
     return 0;
