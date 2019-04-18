@@ -61,15 +61,10 @@ function openCheck(restaurants){
         else if(openTime.length%2==0){
             var count=0;
             for(var j=0; j<openTime.length/2; j++){
-                if(timeCheck(openTime[j], openTime[j+1])){
+                if(!(timeCheck(openTime[j], openTime[j+1]))){
+                    tmp.splice(i, 1);
                     break;
                 }
-                else{
-                    count += 2;
-                }
-            }
-            if(count==openTime.length){
-                tmp.splice(i, 1);
             }
         }
     }
