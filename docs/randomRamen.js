@@ -64,7 +64,6 @@ function openCheck(restaurants){
         if(open.length < 2){
         }
         else if(open.length%2==0){
-            alert(open[0] + ", " + open[1]);
             for(var j=0; j<open.length/2; j++){
                 if(timeCheck(open[2*j], open[(2*j)+1]) == 1){
                     openDT.push(tmp[i]);
