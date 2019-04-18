@@ -65,7 +65,7 @@ function openCheck(restaurants){
                     break;
                 }
                 else{
-                    count++;
+                    count += 2;
                 }
             }
             if(count==openTime.length){
