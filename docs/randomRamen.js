@@ -39,12 +39,13 @@ function timeCheck(openTime, closeTime){
     if(Number(openTimeSplit[0]) < today.getHours() < Number(closeTimeSplit[0])){
         return 1;
     }
+    /*
     else if((Number(openTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
         return 1;
     }
     else if((Number(closeTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
         return 1;
-    }
+    }*/
     return 0;
 
 }
