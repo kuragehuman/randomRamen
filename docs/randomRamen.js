@@ -34,17 +34,15 @@ function convertCSVtoData(str){
 
 function timeCheck(openTime, closeTime){
     var openTimeSplit = openTime.split(':');
-    alert(openTimeSplit[0]);
-    alert(openTimeSplit[1]);
     var closeTimeSplit = closeTime.split(':');
     var today = new Date();
-    if(openTimeSplit[0] < today.getHours() < closeTimeSplit[0]){
+    if(Number(openTimeSplit[0]) < today.getHours() < Number(closeTimeSplit[0])){
         return 1;
     }
-    else if((openTimeSplit[0] == today.getHours()) && (openTimeSplit[1] <= today.getMinutes()) && (today.getMinutes() <= closeTimeSplit[1])){
+    else if((Number(openTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
         return 1;
     }
-    else if((closeTimeSplit[0] == today.getHours()) && (openTimeSplit[1] <= today.getMinutes()) && (today.getMinutes() <= closeTimeSplit[1])){
+    else if((Number(closeTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
         return 1;
     }
     return 0;
