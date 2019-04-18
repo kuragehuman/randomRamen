@@ -54,15 +54,15 @@ function openCheck(restaurants){
     var today = new Date();
     var tmp = restaurants.filter(value => value.days == oneweek[today.getDay()]);
     for(var i=0; i<tmp.length; i++){
-        var openTime = tmp[i].time.split(' ');
-        if(openTime.length < 2){
+        var open = tmp[i].time.split(' ');
+        if(open.length < 2){
             tmp.splice(i, 1);
         }
-        else if(openTime.length%2==0){
+        else if(open.length%2==0){
             var count=0;
-            for(var j=0; j<openTime.length/2; j++){
-                if(!(timeCheck(openTime[j], openTime[j+1]))){
-                    tmp.splice(i, 1);
+            for(var j=0; j<open.length/2; j++){
+                if(timeCheck(open[2*j], open[2*j+1]) == 0){
+                    alert(tmp.splice(i, 1));
                     break;
                 }
             }
