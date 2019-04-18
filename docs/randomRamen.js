@@ -40,7 +40,9 @@ function timeCheck(openTime, closeTime){
     var openTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), Number(openTimeSplit[0]), Number(openTimeSplit[1]));
     var closeTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), Number(closeTimeSplit[0]), Number(closeTimeSplit[1]));
 
-    if(Number(openTimeDate.getTime()) < today.getTime() < closeTimeDate.getTime()){
+    alert(openTimeDate.getTime() + ", " + today.getTime() + ", " + closeTimeDate.getTime());
+
+    if(openTimeDate.getTime() < today.getTime() < closeTimeDate.getTime()){
         return 1;
     }
     /*
