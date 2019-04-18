@@ -33,10 +33,10 @@ function convertCSVtoData(str){
 }
 
 function timeCheck(openTime, closeTime){
-    var openTimeSplit = Number(openTime.split(':'));
+    var openTimeSplit = openTime.split(':');
     alert(openTimeSplit[0]);
     alert(openTimeSplit[1]);
-    var closeTimeSplit = Number(closeTime.split(':'));
+    var closeTimeSplit = closeTime.split(':');
     var today = new Date();
     if(openTimeSplit[0] < today.getHours() < closeTimeSplit[0]){
         return 1;
