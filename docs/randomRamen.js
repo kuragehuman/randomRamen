@@ -54,23 +54,25 @@ function openCheck(restaurants){
     var oneweek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     var today = new Date();
     var tmp = restaurants.filter(value => value.days == oneweek[today.getDay()]);
+    var openDT = restaurants.filter(value => value.days == oneweek[today.getDay()]);
+    var delNum;
     for(var i=0; i<tmp.length; i++){
         var open = tmp[i].time.split(' ');
         if(open.length < 2){
-            tmp.splice(i, 1);
+            openDT.splice(i, 1);
         }
         else if(open.length%2==0){
             var count=0;
             for(var j=0; j<open.length/2; j++){
                 if(timeCheck(open[2*j], open[2*j+1]) == 0){
-                    var spliced = tmp.splice(i, 1);
+                    var spliced = openDT.splice(i, 1);
                     alert(spliced.name + ", " + spliced.days + ", " + spliced.time);
                     break;
                 }
             }
         }
     }
-    return tmp;
+    return openDT;
 }
 
 function randomSelect(){
