@@ -40,18 +40,11 @@ function timeCheck(openTime, closeTime){
     var openTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), Number(openTimeSplit[0]), Number(openTimeSplit[1]));
     var closeTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), Number(closeTimeSplit[0]), Number(closeTimeSplit[1]));
 
-    alert(openTimeDate.getTime() + ", " + today.getTime() + ", " + closeTimeDate.getTime());
+    alert(openTimeDate.getTime() + "\n" + today.getTime() + "\n" + closeTimeDate.getTime());
 
     if(openTimeDate.getTime() < today.getTime() < closeTimeDate.getTime()){
         return 1;
     }
-    /*
-    else if((Number(openTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
-        return 1;
-    }
-    else if((Number(closeTimeSplit[0]) == today.getHours()) && (Number(openTimeSplit[1]) <= today.getMinutes()) && (today.getMinutes() <= Number(closeTimeSplit[1]))){
-        return 1;
-    }*/
     return 0;
 
 }
@@ -67,6 +60,7 @@ function openCheck(restaurants){
         }
         else if(open.length%2==0){
             for(var j=0; j<open.length/2; j++){
+                alert(tmp[i].name);
                 if(timeCheck(open[2*j], open[(2*j)+1]) == 1){
                     openDT.push(tmp[i]);
                     break;
