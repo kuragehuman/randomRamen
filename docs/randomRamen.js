@@ -62,7 +62,8 @@ function openCheck(restaurants){
             var count=0;
             for(var j=0; j<open.length/2; j++){
                 if(timeCheck(open[2*j], open[2*j+1]) == 0){
-                    alert(tmp.splice(i, 1));
+                    var spliced = tmp.splice(i, 1);
+                    alert(spliced.name + ", " + spliced.days + ", " + spliced.time);
                     break;
                 }
             }
